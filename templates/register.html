@@ -1,0 +1,38 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+    <link rel="stylesheet" href="/static/style_reg_log.css">
+</head>
+<body>
+    <h1>List My Space</h1>
+    <h2>Registration Form</h2>
+
+    <form id="registerForm">
+        <input type="text" id="registerUsername" placeholder="Username" required>
+        <input type="password" id="registerPassword" placeholder="Password" required>
+        <label for="role">Choose an option:</label>
+        <select id="role" name="role" onchange="toggleCompanyNameField()">
+            <option value="OWNER">I want to rent or sell a property</option>
+            <option value="CUSTOMER">I am looking to rent or buy a property</option>
+        </select>
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="text" id="phone" placeholder="Phone number" required>
+        <input type="text" id="email" placeholder="Email" required>
+
+        <!-- Company Name field, initially hidden -->
+        <div id="companyNameField" style="display: none;">
+            <input type="text" id="company" placeholder="Company name">
+        </div>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <script src="/static/register.js"></script>
+</body>
+</html>

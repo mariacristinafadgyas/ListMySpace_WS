@@ -1,0 +1,138 @@
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+/*===== VARIABLES CSS =====*/
+:root {
+  --hue-color: 220; /* Base hue */
+
+  /*===== Color Palette =====*/
+  --background-color: hsl(var(--hue-color), 20%, 95%); /* Used for body background */
+  --text-color: hsl(var(--hue-color), 30%, 15%); /* Used for body text */
+  --heading-color: hsl(var(--hue-color), 35%, 25%); /* Used for headings */
+  --border-color: hsl(var(--hue-color), 30%, 75%); /* Used for input border */
+  --input-bg-color: hsl(var(--hue-color), 20%, 98%); /* Used for input background */
+  --input-focus-color: hsl(var(--hue-color), 40%, 35%); /* Used for input focus border */
+  --button-bg-color: hsl(var(--hue-color), 35%, 40%); /* Used for button background */
+  --button-hover-bg-color: hsl(var(--hue-color), 35%, 30%); /* Used for button hover */
+  --button-text-color: #ffffff; /* Used for button text */
+  --box-shadow-color: rgba(0, 0, 0, 0.15); /* Used for form shadow */
+
+  /*===== Typography =====*/
+  --font-family: 'Roboto', sans-serif;
+  --big-font-size: 2.5rem;
+  --h2-font-size: 1.6rem;
+  --normal-font-size: 1rem;
+}
+
+/*===== RESET =====*/
+body, h1, h2, form {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*===== BODY STYLING =====*/
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/*===== HEADING STYLING =====*/
+h1 {
+  text-align: center;
+  margin: 20px 0;
+  font-size: var(--big-font-size);
+  color: var(--heading-color);
+}
+
+h2 {
+  text-align: center;
+  color: var(--heading-color);
+  font-size: var(--h2-font-size);
+  margin-bottom: 20px;
+}
+
+/*===== FORM STYLING =====*/
+form {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px var(--box-shadow-color);
+  padding: 30px 25px;
+  max-width: 450px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/*===== INPUT & SELECT STYLING =====*/
+input[type="text"],
+input[type="password"],
+select {
+  width: 385px;
+  padding: 5px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--input-bg-color);
+  font-size: var(--normal-font-size);
+  transition: border-color 0.3s;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--input-focus-color);
+  outline: var(--text-color);
+}
+
+/*===== SELECT STYLING =====*/
+select {
+  cursor: pointer;
+}
+
+/*===== BUTTON STYLING =====*/
+button {
+  background: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: var(--normal-font-size);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.1s;
+}
+
+button:hover {
+  background: var(--button-hover-bg-color);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/*===== RESPONSIVE DESIGN =====*/
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  form {
+    padding: 20px;
+  }
+
+  input, select, button {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+}
