@@ -16,6 +16,10 @@
   --button-hover-bg-color: hsl(var(--hue-color), 35%, 30%); /* Used for button hover */
   --button-text-color: #ffffff; /* Used for button text */
   --box-shadow-color: rgba(0, 0, 0, 0.15); /* Used for form shadow */
+  --flash-bg-color: hsl(var(--hue-color), 89%, 90%); /* Flash message background color */
+  --flash-border-color: hsl(var(--hue-color), 89%, 70%); /* Flash message border color */
+  --flash-success-color: hsl(var(--hue-color), 9%, 50%); /* Flash message success color */
+  --flash-error-color: hsl(var(--hue-color), 10%, 20%); /* Flash message error color */
 
   /*===== Typography =====*/
   --font-family: 'Roboto', sans-serif;
@@ -115,6 +119,30 @@ button:hover {
 
 button:active {
   transform: translateY(0);
+}
+
+.success-message,
+.error-message {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: var(--flash-bg-color);
+    border-left: 5px solid var(--flash-border-color);
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.success-message {
+    color: var(--flash-success-color);
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.error-message {
+    color: var(--flash-error-color);
+    font-weight: bold;
+    margin-top: 10px;
 }
 
 /*===== RESPONSIVE DESIGN =====*/

@@ -1,6 +1,6 @@
 document.getElementById('registerForm').addEventListener('submit', function(event) {
     event.preventDefault();
-    
+
     // Gather all form input values
     const username = document.getElementById('registerUsername').value;
     const password = document.getElementById('registerPassword').value;
@@ -8,11 +8,11 @@ document.getElementById('registerForm').addEventListener('submit', function(even
     const name = document.getElementById('name').value;
     const phone = document.getElementById('phone').value;
     const email = document.getElementById('email').value;
-    let company = "";
+    let company_name = "";
 
     // Check if the company name field is visible and has a value
     if (role === 'OWNER') {
-        company = document.getElementById('company').value;
+        company_name = document.getElementById('company').value;
     }
 
     // Send data to the backend
@@ -21,7 +21,7 @@ document.getElementById('registerForm').addEventListener('submit', function(even
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password, role, name, phone, email, company }),
+        body: JSON.stringify({ username, password, role, name, phone, email, company_name }),
     })
     .then(response => response.json())
     .then(data => {
@@ -29,24 +29,33 @@ document.getElementById('registerForm').addEventListener('submit', function(even
         const existingMessage = document.querySelector('.success-message, .error-message');
         if (existingMessage) existingMessage.remove();
 
-        if (data.message === "User registered successfully.") {
-            const successMessage = document.createElement('p');
-            successMessage.textContent = "Registration successful! Redirecting to login...";
-            successMessage.classList.add('success-message');
-            document.body.appendChild(successMessage);
+        if (data.message) {  // Success case
+        const successMessage = document.createElement('p');
+        successMessage.textContent = data.message;
+        successMessage.classList.add('success-message');
+        document.body.appendChild(successMessage);
 
-            // Redirect to login page after 2 seconds
-            setTimeout(function() {
-                window.location.href = '/';
+            // Clear form data after successful submission
+            document.getElementById('registerForm').reset();
+
+            // Redirect to login page after a brief delay
+            setTimeout(() => {
+                window.location.href = '/login';
             }, 2000);
-        } else {
-            const errorMessage = document.createElement('p');
-            errorMessage.textContent = data.message;
-            errorMessage.classList.add('error-message');
-            document.body.appendChild(errorMessage);
-        }
-    })
-    .catch(error => console.error('Error registering:', error));
+        } else if (data.error) {  // Error case
+        const errorMessage = document.createElement('p');
+        errorMessage.textContent = data.error;
+        errorMessage.classList.add('error-message');
+        document.body.appendChild(errorMessage);
+    }
+})
+    .catch(error => {
+        console.error('Error registering:', error);
+        const errorMessage = document.createElement('p');
+        errorMessage.textContent = 'An error occurred during registration. Please try again later.';
+        errorMessage.classList.add('error-message');
+        document.body.appendChild(errorMessage);
+    });
 });
 
 // Toggle function for company name field
