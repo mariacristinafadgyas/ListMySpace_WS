@@ -35,6 +35,51 @@ body, h1, h2, form {
   box-sizing: border-box;
 }
 
+/*===== NAVBAR STYLING =====*/
+.navbar {
+  background-color: hsl(var(--hue-color), 35%, 30%); /* Dark hue for the navbar */
+  padding: 10px 20px;
+  width: 100%; /* Full-width */
+  position: fixed; /* Sticks to the top */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensures the navbar is above other content */
+  border-radius: 0; /* Removes rounded corners */
+}
+
+.navbar-logo {
+  width: 40px; /* Adjust as needed */
+  height: auto;
+}
+
+.navbar-text {
+  color: var(--button-text-color);
+  font-weight: bold;
+  font-size: var(--normal-font-size);
+}
+
+/* Navbar link styling */
+.navbar .nav-link {
+  color: var(--button-text-color);
+  font-weight: bold;
+  font-size: var(--normal-font-size);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar .nav-link:hover {
+  color: var(--background-color); /* Lighter background color on hover */
+}
+
+/* Navbar collapse styling */
+.navbar .collapse {
+  justify-content: flex-end;
+}
+
+.navbar .nav-item {
+  margin-left: 15px;
+}
+
 /*===== BODY STYLING =====*/
 body {
   font-family: var(--font-family);
@@ -146,6 +191,18 @@ button:active {
 }
 
 /*===== RESPONSIVE DESIGN =====*/
+@media (max-width: 600px) {
+  .navbar .nav-link {
+    display: block;
+    margin: 5px 0;
+    text-align: center;
+  }
+
+  .navbar .nav-item {
+    margin: 0;
+  }
+}
+
 @media (max-width: 600px) {
   h1 {
     font-size: 2rem;
