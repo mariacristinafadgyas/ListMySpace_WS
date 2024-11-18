@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,13 +5,13 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>List My Space - Registration</title>
+    <title>List My Space - Login</title>
     <!-- Link to Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/static/style_reg_log.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
         <div class="container">
             <div class="d-flex align-items-center">
                 <img src="/static/Logo.png" alt="Logo" class="navbar-logo me-2">
@@ -31,31 +30,20 @@
         </div>
     </nav>
 
-    <h2>Registration Form</h2>
+    <h2>Login</h2>
 
-    <form id="registerForm">
-        <input type="text" id="registerUsername" placeholder="Username" required>
-        <input type="password" id="registerPassword" placeholder="Password" required>
-        <label for="role">Choose an option:</label>
-        <select id="role" name="role" onchange="toggleCompanyNameField()">
-            <option value="OWNER">I want to rent or sell a property</option>
-            <option value="CUSTOMER">I am looking to rent or buy a property</option>
-        </select>
-        <input type="text" id="name" placeholder="Full Name" required>
-        <input type="text" id="phone" placeholder="Phone number" required>
-        <input type="text" id="email" placeholder="Email" required>
-
-        <!-- Company Name field, initially hidden -->
-        <div id="companyNameField" style="display: none;">
-            <input type="text" id="company" placeholder="Company name">
-        </div>
-
-        <button type="submit">Register</button>
+    <form id="loginForm">
+        <input type="text" id="loginUsername" placeholder="Username" required>
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <button type="submit">Login</button>
     </form>
 
-    <!-- Link to Bootstrap Bundle (includes Popper.js for dropdowns and other components) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <a href="{{ url_for('registration') }}" id="registration_button" class="button">New User</a>
 
-    <script src="/static/register.js"></script>
+     <!-- Link to Bootstrap Bundle (includes Popper.js for dropdowns and other components) -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="{{ url_for('static', filename='login.js') }}"></script>
+
 </body>
 </html>
